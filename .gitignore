@@ -102,3 +102,6 @@ $RECYCLE.BIN/
 
 # Config file
 config.yaml
+
+# Project folder
+.idea/
