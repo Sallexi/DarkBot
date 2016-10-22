@@ -3,6 +3,7 @@ import tornado
 import tornado.iostream
 from tornado.ioloop import IOLoop
 from tornado import httpclient
+import dateutil.parser
 import inspect
 import json
 
@@ -24,10 +25,10 @@ class Twitch(object):
                            b'PRIVMSG': self.message}
 
         # Initially load followers
-        self.check_followers(say_new=False)
+        self.load_followers(say_new=False)
 
         # Check followers every 1 minute
-        tornado.ioloop.PeriodicCallback(self.check_followers, 60000).start()
+        tornado.ioloop.PeriodicCallback(self.load_followers, 60000).start()
 
         # Create a new TCP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
@@ -102,10 +103,18 @@ class Twitch(object):
         # Example: nickname!account@server
         user = user[:user.find('!')]
 
-        if message.startswith('!followers'):
+        if message == '!followers':
             self.fetch('/channels/darkvalkyrieprincess/follows', self.say_followers)
+        if message == '!top5':
+            top_users = sorted(self.followers, key=(lambda user: self.followers[user]['follow_date']))[:5]
+            top_users = [(rank + 1, self.get_name(uid)) for rank, uid in enumerate(top_users)]
+            top_users = ' '.join('%s. %s' % user for user in top_users)
+            self.say(top_users, channel)
 
         print('%s : %s : %s' % (channel, user, message))
+
+    def get_name(self, user_id):
+        return self.followers[user_id]['name']
 
     def say_followers(self, response):
         if not response.error:
@@ -115,6 +124,9 @@ class Twitch(object):
     def say(self, message: str, target: str):
         self.send('PRIVMSG %s :%s' % (target, message))
 
+    def load_followers(self, say_new=True):
+        self.fetch('/channels/darkvalkyrieprincess/follows', lambda x: self.check_followers(x, say_new=say_new))
+
     def check_followers(self, response=None, say_new=True):
         if response and not response.error:
             followers = json.loads(response.body.decode(self.encoding))
@@ -122,13 +134,13 @@ class Twitch(object):
             # Get user ids and names
             users = {}
             for follower in followers['follows']:
-                id = follower['user']['_id']
-                users[id] = follower['user']['display_name']
-                if id not in self.followers and say_new:
-                    self.say('%s is now following!' % users[id], '#darkvalkyrieprincess')
+                user_id = follower['user']['_id']
+                users[user_id] = {}
+                users[user_id]['name'] = follower['user']['display_name']
+                users[user_id]['follow_date'] = dateutil.parser.parse(follower['created_at'])
+                if user_id not in self.followers and say_new:
+                    self.say('%s is now following!' % users[user_id]['name'], '#darkvalkyrieprincess')
             self.followers = users
-        else:
-            self.fetch('/channels/darkvalkyrieprincess/follows', self.check_followers)
 
     def fetch(self, url, handler):
         if not url.startswith('/'):
