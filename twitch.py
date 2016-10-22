@@ -3,7 +3,6 @@ import tornado
 import tornado.iostream
 from tornado.ioloop import IOLoop
 from tornado import httpclient
-from datetime import timedelta
 import inspect
 import json
 
@@ -24,8 +23,11 @@ class Twitch(object):
                            b'376': self.motd_end,
                            b'PRIVMSG': self.message}
 
+        # Initially load followers
         self.check_followers(say_new=False)
-        tornado.ioloop.PeriodicCallback(self.check_followers, 300000).start()
+
+        # Check followers every 1 minute
+        tornado.ioloop.PeriodicCallback(self.check_followers, 60000).start()
 
         # Create a new TCP socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
