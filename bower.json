@@ -1,0 +1,23 @@
+{
+  "name": "DarkBot",
+  "authors": [
+    "Sallexi"
+  ],
+  "description": "Twitch Bot",
+  "main": "darkbot.py",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/static/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  }
+}
