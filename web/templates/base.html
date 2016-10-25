@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DarkBot</title>
+    <link rel="shortcut icon" href="{{ static_url('favicon.ico') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ static_url('bower/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ static_url('bower/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" type="text/css"
+          href="{{ static_url('style.css') }}">
+</head>
+<body>
+<nav class="left-panel" id="left-panel">
+    <div class="header">
+        <img src="{{ static_url('header.png') }}">
+    </div>
+    <ul>
+        <li id="dashboard">
+            <a href="/">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+            </a>
+        </li>
+        <li id="channel">
+            <a href="/channel">
+                <i class="fa fa-video-camera" aria-hidden="true"></i> Channel
+            </a>
+        </li>
+        <li id="chat-statistics">
+            <a href="/chat_statistics">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i> Chat Statistics
+            </a>
+        </li>
+        <li id="logs">
+            <a href="/logs">
+                <i class="fa fa-book" aria-hidden="true"></i> Logs
+            </a>
+        </li>
+    </ul>
+</nav>
+<footer>
+    <script src="{{ static_url('bower/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ static_url('bower/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ static_url('js/darkbot.js') }}"></script>
+    <script>
+        $(document).ready(
+            navSelector('{% block active %}{% end %}')
+        );
+    </script>
+    {% block footer %}{% end %}
+</footer>
+</body>
+</html>
