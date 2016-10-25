@@ -3,4 +3,9 @@ from .base import BaseHandler
 
 class MainHandler(BaseHandler):
     def get(self):
-        self.render('index.html')
+        self.render('dashboard.html')
+
+
+class Channel(BaseHandler):
+    def get(self):
+        self.render('channel.html')
