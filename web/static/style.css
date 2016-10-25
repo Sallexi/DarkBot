@@ -1,0 +1,49 @@
+body {
+	background-color: #141414;
+}
+
+nav > ul {
+	list-style-type: none;
+	padding-top: 20px;
+	padding-left: 0;
+}
+
+nav > ul > li {
+	padding-left: 15px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	font-size: 1.4rem;
+}
+
+nav > ul > li:hover {
+	background-color: #333333;
+}
+
+nav > ul a {
+	display: block;
+	color: #D3D3D3;
+}
+
+nav > ul a:hover {
+	text-decoration: none;
+	color: #D3D3D3
+}
+
+.left-panel {
+    background-color: #1E1E1E;
+    min-width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+.fa {
+	padding-right: 1rem;
+}
+
+.active {
+	box-shadow: 3px 0 0 #6441A4 inset;
+	background-color: #333333;
+}
