@@ -19,3 +19,8 @@ class ChatStatistics(BaseHandler):
 class Logs(BaseHandler):
     def get(self):
         self.render('logs.html')
+
+
+class Development(BaseHandler):
+    def get(self):
+        self.render('development.html')
