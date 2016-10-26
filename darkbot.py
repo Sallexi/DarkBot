@@ -9,7 +9,8 @@ from page_handlers import pages
 def make_app():
     return tornado.web.Application(
         [(r'/', pages.MainHandler),
-         (r'/channel', pages.Channel)],
+         (r'/channel', pages.Channel),
+         (r'/chat_statistics', pages.ChatStatistics)],
         compiled_template_cache=conf['web']['compiled_template_cache'],
         static_path='web/static',
         template_path='web/templates'
