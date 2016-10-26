@@ -11,7 +11,8 @@ def make_app():
         [(r'/', pages.MainHandler),
          (r'/channel', pages.Channel),
          (r'/chat_statistics', pages.ChatStatistics),
-         (r'/logs', pages.Logs)],
+         (r'/logs', pages.Logs),
+         (r'/development', pages.Development)],
         compiled_template_cache=conf['web']['compiled_template_cache'],
         static_path='web/static',
         template_path='web/templates'
