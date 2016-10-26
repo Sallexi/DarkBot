@@ -10,7 +10,8 @@ def make_app():
     return tornado.web.Application(
         [(r'/', pages.MainHandler),
          (r'/channel', pages.Channel),
-         (r'/chat_statistics', pages.ChatStatistics)],
+         (r'/chat_statistics', pages.ChatStatistics),
+         (r'/logs', pages.Logs)],
         compiled_template_cache=conf['web']['compiled_template_cache'],
         static_path='web/static',
         template_path='web/templates'
