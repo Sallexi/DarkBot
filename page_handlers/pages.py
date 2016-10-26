@@ -14,3 +14,8 @@ class Channel(BaseHandler):
 class ChatStatistics(BaseHandler):
     def get(self):
         self.render('chat_statistics.html')
+
+
+class Logs(BaseHandler):
+    def get(self):
+        self.render('logs.html')
