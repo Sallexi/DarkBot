@@ -2,6 +2,10 @@ body {
 	background-color: #141414;
 }
 
+nav i {
+    padding-right: 1rem;
+}
+
 nav > ul {
 	list-style-type: none;
 	padding-top: 20px;
@@ -19,7 +23,7 @@ nav > ul a:hover {
 }
 
 nav > ul > li {
-	padding: 7px 1rem 7px 15px;
+	padding: 7px 0 7px 15px;
 	font-size: 1.4rem;
 }
 
@@ -29,7 +33,6 @@ nav > ul > li:hover {
 
 .left-panel {
     background-color: #1E1E1E;
-    min-width: 240px;
     position: fixed;
     top: 0;
     left: 0;
