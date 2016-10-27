@@ -8,17 +8,6 @@ nav > ul {
 	padding-left: 0;
 }
 
-nav > ul > li {
-	padding-left: 15px;
-	padding-top: 7px;
-	padding-bottom: 7px;
-	font-size: 1.4rem;
-}
-
-nav > ul > li:hover {
-	background-color: #333333;
-}
-
 nav > ul a {
 	display: block;
 	color: #D3D3D3;
@@ -29,6 +18,15 @@ nav > ul a:hover {
 	color: #D3D3D3
 }
 
+nav > ul > li {
+	padding: 7px 1rem 7px 15px;
+	font-size: 1.4rem;
+}
+
+nav > ul > li:hover {
+	background-color: #333333;
+}
+
 .left-panel {
     background-color: #1E1E1E;
     min-width: 240px;
@@ -37,10 +35,6 @@ nav > ul a:hover {
     left: 0;
     bottom: 0;
     z-index: 100;
-}
-
-.fa {
-	padding-right: 1rem;
 }
 
 .active {
