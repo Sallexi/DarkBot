@@ -55,7 +55,6 @@ class Twitch(object):
     def __route(self, data):
         lines = data.split(b'\r\n')
         prefix = b''
-        idx = 0
 
         for line in lines:
             # Make sure line is not empty
@@ -148,6 +147,9 @@ class Twitch(object):
             chatters = json.loads(response.body.decode(self.encoding))
             users = []
 
+            if chatters['chatter_count'] == 0:
+                return
+
             if self.chatters_last_update is not None:
                 time_delta = datetime.now() - self.chatters_last_update
             else:
@@ -177,6 +179,7 @@ class Twitch(object):
                 "watch_time = EXCLUDED.watch_time + users.watch_time, "
                 "last_noticed = EXCLUDED.last_noticed",
                 users)
+
             print(datetime.now().strftime('%I:%M') + ' Updated chatters')
         else:
             self.fetch_tmi('/group/user/darkvalkyrieprincess/chatters', self.load_chatters)
