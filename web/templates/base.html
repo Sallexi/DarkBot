@@ -12,7 +12,7 @@
           href="{{ static_url('style.css') }}">
 </head>
 <body>
-<nav class="left-panel" id="left-panel">
+<nav class="left-panel expanded" id="left-panel">
     <div class="header">
         <img src="{{ static_url('header.png') }}">
     </div>
@@ -44,13 +44,22 @@
         </li>
     </ul>
 </nav>
+<div id="center-panel">
+    <div id="minimize-left">
+        <a href="#">
+            <div class="arrow-left"></div>
+        </a>
+    </div>
+    <div id="content">
+    </div>
+</div>
 <footer>
     <script src="{{ static_url('bower/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ static_url('bower/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ static_url('js/darkbot.js') }}"></script>
     <script>
         $(document).ready(
-            navSelector('{% block active %}{% end %}')
+                navSelector('{% block active %}{% end %}')
         );
     </script>
     {% block footer %}{% end %}
