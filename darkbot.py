@@ -12,7 +12,8 @@ def make_app():
          (r'/channel', pages.Channel),
          (r'/chat_statistics', pages.ChatStatistics),
          (r'/logs', pages.Logs),
-         (r'/development', pages.Development)],
+         (r'/development', pages.Development),
+         (r'/images/(.*)', tornado.web.StaticFileHandler, {'path': 'web/static/images'})],
         compiled_template_cache=conf['web']['compiled_template_cache'],
         static_path='web/static',
         template_path='web/templates'

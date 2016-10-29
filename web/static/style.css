@@ -6,14 +6,27 @@ body {
     color: #D3D3D3;
 }
 
+nav {
+    width: 240px;
+}
+
 nav i {
     padding-right: 1rem;
+}
+
+nav.minimized i {
+    padding-right: 0;
 }
 
 nav > ul {
     list-style-type: none;
     padding-top: 20px;
     padding-left: 0;
+}
+
+nav.minimized > ul {
+    padding-top: 0;
+    text-align: center;
 }
 
 nav > ul a {
@@ -28,7 +41,11 @@ nav > ul a:hover {
 
 nav > ul > li {
     padding: 7px 0 7px 15px;
-    font-size: 1.4rem;
+    font-size: 2rem;
+}
+
+nav.minimized > ul > li {
+    padding: 7px 0 7px 0;
 }
 
 nav > ul > li:hover {
@@ -46,6 +63,25 @@ nav > ul > li:hover {
     top: 0;
     left: 0;
     bottom: 0;
+    -webkit-transition: width 0.15s ease-out;
+    -moz-transition: width 0.15s ease-out;
+    -ms-transition: width 0.15s ease-out;
+    -o-transition: width 0.15s ease-out;
+    transition: width 0.15s ease-out;
+}
+
+#left-panel.minimized {
+    width: 68px;
+    -webkit-transition: width 0.15s ease-in;
+    -moz-transition: width 0.15s ease-in;
+    -ms-transition: width 0.15s ease-in;
+    -o-transition: width 0.15s ease-in;
+    transition: width 0.15s ease-in;
+}
+
+#left-panel.minimized span,
+#left-panel.minimized #large-header {
+    display: none;
 }
 
 #center-panel {
@@ -55,20 +91,25 @@ nav > ul > li:hover {
     bottom: 0;
     left: 0;
     right: 0;
+    -webkit-transition: margin-left 0.15s ease-out;
+    -moz-transition: margin-left 0.15s ease-out;
+    -ms-transition: margin-left 0.15s ease-out;
+    -o-transition: margin-left 0.15s ease-out;
+    transition: margin-left 0.15s ease-out;
 }
 
-.arrow-left {
-    position: relative;
-    width: 0;
-    height: 0;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-right: 8px solid white;
-    top: 4px;
-    left: 7px;
+#center-panel.expanded {
+    /* needs to be the same as
+    #left-panel.minimized's width */
+    margin-left: 68px;
+    -webkit-transition: margin-left 0.15s ease-in;
+    -moz-transition: margin-left 0.15s ease-in;
+    -ms-transition: margin-left 0.15s ease-in;
+    -o-transition: margin-left 0.15s ease-in;
+    transition: margin-left 0.15s ease-in;
 }
 
-#minimize-left {
+#sidebar-toggle {
     position: relative;
     background-color: #323232;
     margin-left: 3px;
@@ -77,13 +118,25 @@ nav > ul > li:hover {
     border-radius: 2px;
     width: 25px;
     height: 24px;
+    display: block;
+    outline: none;
     z-index: 1;
 }
 
-#minimize-left a {
-    display: block;
-    height: 100%;
-    outline: none;
+#arrow {
+    position: relative;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-right: 8px solid white;
+    top: 4px;
+    right: 1px;
+}
+
+#arrow.arrow-right {
+    border: 8px solid transparent;
+    border-left: 8px solid white;
+    left: 9px;
 }
 
 #content {

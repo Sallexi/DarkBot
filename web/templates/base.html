@@ -12,44 +12,47 @@
           href="{{ static_url('style.css') }}">
 </head>
 <body>
-<nav class="left-panel expanded" id="left-panel">
-    <div class="header">
-        <img src="{{ static_url('header.png') }}">
+<nav id="left-panel">
+    <div id="panel-header">
+        <img id="large-header" src="{{ static_url('images/header.png') }}">
     </div>
     <ul>
         <li id="dashboard">
             <a href="/">
-                <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+                <i class="fa fa-tachometer" aria-hidden="true"></i>
+                <span> Dashboard</span>
             </a>
         </li>
         <li id="channel">
             <a href="/channel">
-                <i class="fa fa-video-camera" aria-hidden="true"></i> Channel
+                <i class="fa fa-video-camera" aria-hidden="true"></i>
+                <span> Channel</span>
             </a>
         </li>
         <li id="chat-statistics">
             <a href="/chat_statistics">
-                <i class="fa fa-bar-chart" aria-hidden="true"></i> Chat Statistics
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                <span> Chat Statistics</span>
             </a>
         </li>
         <li id="logs">
             <a href="/logs">
-                <i class="fa fa-book" aria-hidden="true"></i> Logs
+                <i class="fa fa-book" aria-hidden="true"></i>
+                <span> Logs</span>
             </a>
         </li>
         <li id="development">
             <a href="/development">
-                <i class="fa fa-code" aria-hidden="true"></i> Development
+                <i class="fa fa-code" aria-hidden="true"></i>
+                <span> Development</span>
             </a>
         </li>
     </ul>
 </nav>
 <div id="center-panel">
-    <div id="minimize-left">
-        <a href="#">
-            <div class="arrow-left"></div>
-        </a>
-    </div>
+    <a id="sidebar-toggle" href="#" onclick="darkbot.toggleSidebar()">
+        <div id="arrow"></div>
+    </a>
     <div id="content">
     </div>
 </div>
