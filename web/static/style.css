@@ -39,12 +39,12 @@ nav > ul a:hover {
     color: #D3D3D3
 }
 
-nav > ul > li {
+nav > ul > li > a {
     padding: 7px 0 7px 15px;
     font-size: 2rem;
 }
 
-nav.minimized > ul > li {
+nav.minimized > ul > li > a {
     padding: 7px 0 7px 0;
 }
 
