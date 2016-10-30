@@ -12,7 +12,7 @@
           href="{{ static_url('style.css') }}">
 </head>
 <body>
-<nav id="left-panel">
+<nav id="left-panel" class="{% if nav_minimized %}minimized {% end %}transition">
     <div id="panel-header">
         <img id="large-header" src="{{ static_url('images/header.png') }}">
     </div>
@@ -49,9 +49,9 @@
         </li>
     </ul>
 </nav>
-<div id="center-panel">
+<div id="center-panel" class="{% if nav_minimized %}expanded {% end %}transition">
     <a id="sidebar-toggle" href="#" onclick="darkbot.toggleSidebar()">
-        <div id="arrow"></div>
+        <div id="arrow" class="{% if nav_minimized %}arrow-right{% end %}"></div>
     </a>
     <div id="content">
     </div>
@@ -59,6 +59,7 @@
 <footer>
     <script src="{{ static_url('bower/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ static_url('bower/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ static_url('bower/cookies-js/dist/cookies.min.js') }}"></script>
     <script src="{{ static_url('js/darkbot.js') }}"></script>
     <script>
         $(document).ready(

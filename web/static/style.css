@@ -57,26 +57,25 @@ nav > ul > li:hover {
     background-color: #333333;
 }
 
+.transition {
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    -ms-transition: all 0.15s ease-out;
+    -o-transition: all 0.15s ease-out;
+    transition: width 0.15s ease-out;
+}
+
 #left-panel {
     background-color: #1E1E1E;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    -webkit-transition: width 0.15s ease-out;
-    -moz-transition: width 0.15s ease-out;
-    -ms-transition: width 0.15s ease-out;
-    -o-transition: width 0.15s ease-out;
-    transition: width 0.15s ease-out;
+
 }
 
 #left-panel.minimized {
     width: 68px;
-    -webkit-transition: width 0.15s ease-in;
-    -moz-transition: width 0.15s ease-in;
-    -ms-transition: width 0.15s ease-in;
-    -o-transition: width 0.15s ease-in;
-    transition: width 0.15s ease-in;
 }
 
 #left-panel.minimized span,
@@ -91,22 +90,12 @@ nav > ul > li:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    -webkit-transition: margin-left 0.15s ease-out;
-    -moz-transition: margin-left 0.15s ease-out;
-    -ms-transition: margin-left 0.15s ease-out;
-    -o-transition: margin-left 0.15s ease-out;
-    transition: margin-left 0.15s ease-out;
 }
 
 #center-panel.expanded {
     /* needs to be the same as
     #left-panel.minimized's width */
     margin-left: 68px;
-    -webkit-transition: margin-left 0.15s ease-in;
-    -moz-transition: margin-left 0.15s ease-in;
-    -ms-transition: margin-left 0.15s ease-in;
-    -o-transition: margin-left 0.15s ease-in;
-    transition: margin-left 0.15s ease-in;
 }
 
 #sidebar-toggle {
