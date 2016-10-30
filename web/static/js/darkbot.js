@@ -4,7 +4,7 @@ darkbot.navSelector = function (id) {
     $('#' + id).addClass('active');
 };
 
-darkbot.toggleSidebar = function (update_cookie) {
+darkbot.toggleSidebar = function () {
     var leftPanel = $('#left-panel');
     var centerPanel = $('#center-panel');
     var arrow = $('#arrow');
