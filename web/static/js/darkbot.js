@@ -19,11 +19,3 @@ darkbot.toggleSidebar = function () {
         Cookies.set('nav_minimized', false);
     }
 };
-
-darkbot.toggleCookie = function (cookie) {
-    if (Cookies.get(cookie) === "true") {
-        Cookies.set(cookie, false);
-    } else {
-        Cookies.set(cookie, true);
-    }
-};
