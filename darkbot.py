@@ -40,8 +40,8 @@ if __name__ == '__main__':
     ioloop.add_future(future, lambda f: ioloop.stop())
     ioloop.start()
     future.result()  # raises exception on connection error
-    app.bot = Twitch(conf['username'],
-                     conf['password'],
-                     conf['client_id'],
+    app.bot = Twitch(conf['twitch']['username'],
+                     conf['twitch']['password'],
+                     conf['twitch']['client_id'],
                      app.db)
     ioloop.start()
